@@ -10,6 +10,7 @@ import './App.css';
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import AddService from "./Pages/AddService/AddService";
 import AllServices from "./Pages/AllServices/AllServices";
+import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
 import Navigation from "./Pages/Home/Shared/Navigation/Navigation";
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/Register">
               <Register />
+            </Route>
+            <Route path="/booking/:serviceId">
+              <Booking />
             </Route>
             <Route path="/AllServices">
               <AllServices></AllServices>
