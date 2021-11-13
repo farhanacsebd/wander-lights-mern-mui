@@ -8,6 +8,7 @@ import {
   from "react-router-dom";
 import './App.css';
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import AddService from "./Pages/AddService/AddService";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/Register">
               <Register />
+            </Route>
+            <Route path="/AddService">
+              <AddService />
             </Route>
             <Route exact path="/">
               <Home />
