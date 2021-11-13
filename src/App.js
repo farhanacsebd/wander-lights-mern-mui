@@ -9,7 +9,10 @@ import {
 import './App.css';
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import AddService from "./Pages/AddService/AddService";
+import AllServices from "./Pages/AllServices/AllServices";
 import Home from "./Pages/Home/Home/Home";
+import Services from "./Pages/Home/Services/Services";
+import Navigation from "./Pages/Home/Shared/Navigation/Navigation";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 
@@ -18,6 +21,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
+          <Navigation></Navigation>
           <Switch>
 
             <Route path="/home">
@@ -28,6 +32,12 @@ function App() {
             </Route>
             <Route path="/Register">
               <Register />
+            </Route>
+            <Route path="/AllServices">
+              <AllServices></AllServices>
+            </Route>
+            <Route path="/Services">
+              <Services />
             </Route>
             <Route path="/AddService">
               <AddService />
