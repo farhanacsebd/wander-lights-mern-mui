@@ -11,10 +11,14 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import AddService from "./Pages/AddService/AddService";
 import AllServices from "./Pages/AllServices/AllServices";
 import Booking from "./Pages/Booking/Booking";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
+import Footer from "./Pages/Home/Shared/Footer/Footer";
 import Navigation from "./Pages/Home/Shared/Navigation/Navigation";
 import Login from "./Pages/Login/Login/Login";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 
 function App() {
@@ -34,22 +38,32 @@ function App() {
             <Route path="/Register">
               <Register />
             </Route>
-            <Route path="/booking/:serviceId">
+            <PrivateRoute path="/booking/:serviceId">
               <Booking />
-            </Route>
-            <Route path="/AllServices">
+            </PrivateRoute>
+            <PrivateRoute path="/AllServices">
               <AllServices></AllServices>
-            </Route>
-            <Route path="/Services">
+            </PrivateRoute>
+            <PrivateRoute path="/Services">
               <Services />
-            </Route>
+            </PrivateRoute>
             <Route path="/AddService">
               <AddService />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/makeAdmin">
+              <MakeAdmin />
             </Route>
             <Route exact path="/">
               <Home />
             </Route>
           </Switch>
+
+
+
+
         </Router>
       </AuthProvider>
     </div>

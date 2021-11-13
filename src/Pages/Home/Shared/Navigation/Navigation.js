@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
+import { Badge, Nav } from 'react-bootstrap';
 
 const Navigation = () => {
     const { user, logOut } = useAuth();
@@ -26,12 +27,30 @@ const Navigation = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Handicraft
                     </Typography>
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/home">
+                        <Button color="inherit">Home</Button>
+                    </NavLink>
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                        <Button color="inherit">Dashboard</Button>
+                    </NavLink>
+
 
                     {
-                        user?.email ? <Button onClick={logOut} color="inherit">LogOut</Button> :
-                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                                <Button color="inherit">Login</Button>
-                            </NavLink>
+
+                        user?.email ? <>
+
+                            <Nav.Link>
+
+                                <Badge bg="light" text="dark">
+                                    {user?.displayName || 'no user'}
+                                </Badge>
+                                <Button onClick={logOut} color="inherit">LogOut</Button>
+                            </Nav.Link> </> :
+                            <>
+
+                                <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                    <Button color="inherit">Login</Button>
+                                </NavLink> </>
                     }
 
                 </Toolbar>
