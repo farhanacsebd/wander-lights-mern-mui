@@ -94,6 +94,9 @@ const Navigation = () => {
                             <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/home">
                                 <Button color="inherit">Home</Button>
                             </NavLink>
+                            <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/AllServices">
+                                <Button color="inherit">AllServices</Button>
+                            </NavLink>
                             <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                                 <Button color="inherit">Dashboard</Button>
                             </NavLink>

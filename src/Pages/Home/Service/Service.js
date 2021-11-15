@@ -1,4 +1,5 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
 // import './Service.css';
 import { Link } from 'react-router-dom';
@@ -8,30 +9,37 @@ const Service = ({ service }) => {
     const { _id, name, price, description, img } = service;
 
     return (
-        <Grid item xs={4} sm={4} md={4} >
-            <Card sx={{ maxWidth: 345, border: 0, boxShadow: 0 }}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        style={{ width: 'auto', height: "140", margin: "0 auto" }}
-                        image={img}
-                        alt="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {description}
-                        </Typography>
-                        <Link to={`/booking/${_id}`}>
-                            <Button sx={{ padding: "3px", margin: "5px" }} variant="contained">Book {name.toLowerCase()}</Button>
+        <Card sx={{ maxWidth: 345, boxShadow: 2 }}>
+            <CardMedia
+                component="img"
+                alt="green iguana"
+                height="250"
+                image={img}
+            />
+            <Box sx={{ bgcolor: 'text.disabled', color: 'primary.main' }}>
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {description}
+                    </Typography>
 
-                        </Link>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </Grid>
+                    <Typography variant="p" color="text.secondary" sx={{ color: "black" }}>
+                        Price : ₹{price}tk
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Link to={`/booking/${_id}`}>
+                        <Button sx={{ padding: "3px", margin: "5px", textDecoration: "none" }} variant="contained">Buy Now</Button>
+                    </Link>
+
+
+                </CardActions>
+            </Box>
+        </Card>
+
+
     );
 };
 

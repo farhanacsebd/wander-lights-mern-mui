@@ -14,26 +14,22 @@ const Services = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
+            <Typography sx variant="h4" component="div" sx={{ flexGrow: 1, m: 3 }}>
+                Our Featured Products
+            </Typography>
             <Container>
-
-                <Typography sx={{ fontWeight: 400, m: 2 }} variant="h6" color="text.secondary">
-                    Our Services
-                </Typography>
-
-                <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h4" >
-                    We provided
-                </Typography>
-
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+
                     {
-                        services.map(service =>
-                            <Service
-                                key={service.id}
-                                service={service}
-                            ></Service>
+                        services.map(service => <Grid item xs={4} sm={4} md={4} >
+                            <Service key={service.id}
+                                service={service}></Service>
+                        </Grid>
                         )
                     }
-                </Grid></Container>
+
+                </Grid>
+            </Container>
         </Box>
     );
 };
