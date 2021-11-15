@@ -19,6 +19,8 @@ import { Button } from '@mui/material';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from './../../../hooks/useAuth';
 import AddService from '../../AddService/AddService';
+import Review from '../Review/Review';
+import ManageAllOrder from '../../ManageAllOrder/ManageAllOrder';
 
 const drawerWidth = 200;
 
@@ -37,15 +39,24 @@ function Dashboard(props) {
             <br />
             <br />
 
-            <Link to="/appointment" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Appointment</Button></Link>
-            <Divider />
+            {/* <Link to="/appointment" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Appointment</Button></Link>
+            <Divider /> */}
             <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Dashboard</Button></Link>
             <Divider />
+            <Link to="/home" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Home</Button></Link>
+            <Divider />
+            <Link to={`${url}/MyOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">My Order</Button></Link>
+            <Divider />
+            <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Give Review</Button></Link>
+            <Divider />
+
 
             {admin && <Box>
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Make Admin</Button></Link>
                 <Divider />
-                <Link to={`${url}/addService`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">addService</Button></Link>
+                <Link to={`${url}/addService`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">AddService</Button></Link>
+                <Divider />
+                <Link to={`${url}/ManageAllOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Manage All Orders</Button></Link>
 
             </Box>}
             <Divider />
@@ -124,6 +135,12 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/addService`}>
                         <AddService></AddService>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
+                    <Route path={`${path}/manageallorder`}>
+                        <ManageAllOrder></ManageAllOrder>
                     </Route>
 
                 </Switch>

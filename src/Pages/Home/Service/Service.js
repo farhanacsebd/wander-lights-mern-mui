@@ -9,13 +9,8 @@ const Service = ({ service }) => {
     const { _id, name, price, description, img } = service;
 
     return (
-        <Card sx={{ maxWidth: 345, boxShadow: 2 }}>
-            <CardMedia
-                component="img"
-                alt="green iguana"
-                height="250"
-                image={img}
-            />
+        <Card sx={{ maxWidth: 345, boxShadow: 2, marginBottom: 10 }}>
+            <img style={{ height: "250px" }} src={img} />
             <Box sx={{ bgcolor: 'text.disabled', color: 'primary.main' }}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

@@ -62,6 +62,25 @@ const Navigation = () => {
                     <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashboard">Dashboard</Link>
                 </ListItem>
                 <Divider />
+                <ListItemText>
+                    {
+
+                        user?.email ? <>
+
+
+                            <Typography className={navItemContainer}>
+                                {user?.displayName || 'no user'}
+                            </Typography>
+                            <Button className={navItemContainer} onClick={logOut} color="inherit">LogOut</Button>
+                        </> :
+                            <>
+
+                                <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                    <Button color="inherit">Login</Button>
+                                </NavLink> </>
+                    }
+                </ListItemText >
+                <Divider />
 
             </List>
         </Box>
@@ -95,7 +114,7 @@ const Navigation = () => {
                                 <Button color="inherit">Home</Button>
                             </NavLink>
                             <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/AllServices">
-                                <Button color="inherit">AllServices</Button>
+                                <Button color="inherit">AllProducts</Button>
                             </NavLink>
                             <NavLink className={navItemContainer} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                                 <Button color="inherit">Dashboard</Button>

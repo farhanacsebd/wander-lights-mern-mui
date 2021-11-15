@@ -1,20 +1,19 @@
-import { Button, Card, CardContent, Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Card, Grid, Box, CardContent, Typography, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 
-const MyOrder = () => {
+const ManageAllOrder = () => {
 
     const [users, setUsers] = useState([])
-    const { user } = useAuth();
+
     // console.log(user.email);
 
     useEffect(() => {
         fetch(`http://localhost:5000/buyer`)
             .then(res => res.json())
             .then(data => {
-                const value = data.filter(db => db.email === user.email);
-                setUsers(value);
+
+                setUsers(data);
+                console.log(users);
             });
     }, [])
 
@@ -44,9 +43,9 @@ const MyOrder = () => {
 
 
     return (
-        <div id="buyer">
+        <div id="users">
 
-            <h2>My Orders</h2>
+            <h2 className="mt-2 text-info">Manage All Orders</h2>
             <div className="row">
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
@@ -88,9 +87,8 @@ const MyOrder = () => {
                 </Grid>
 
             </div>
-
         </div>
     );
 };
 
-export default MyOrder;
+export default ManageAllOrder;

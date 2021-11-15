@@ -98,7 +98,7 @@ const Register = () => {
                     }
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <img src={login} style={{ width: '100%' }} />
+
                 </Grid>
 
             </Grid>

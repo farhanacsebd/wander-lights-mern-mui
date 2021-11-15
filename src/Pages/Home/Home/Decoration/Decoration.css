@@ -1,0 +1,9 @@
+.bg-img{
+    background-image: url('https://i.insider.com/556e02d6ecad04f57bb23cfe?width=1200&format=jpeg');
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
