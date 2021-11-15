@@ -20,7 +20,7 @@ const AddService = () => {
 
     return (
         <div className="add-service">
-            <h2>Please Add a Service</h2>
+            <h2>Pleasee Add a Service</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
                 <textarea {...register("description")} placeholder="Description" />

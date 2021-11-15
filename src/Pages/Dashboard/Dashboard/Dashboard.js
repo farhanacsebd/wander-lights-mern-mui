@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -24,6 +18,7 @@ import {
 import { Button } from '@mui/material';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from './../../../hooks/useAuth';
+import AddService from '../../AddService/AddService';
 
 const drawerWidth = 200;
 
@@ -39,24 +34,21 @@ function Dashboard(props) {
     const drawer = (
         <div>
             <Toolbar />
-            <Divider />
-            <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
+            <br />
+            <br />
 
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <Link to="/appointment" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Appointment</Button></Link>
+            <Divider />
+            <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Dashboard</Button></Link>
+            <Divider />
+
             {admin && <Box>
-                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link to="/addService"><Button color="inherit">Add Service</Button></Link>
+                <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Make Admin</Button></Link>
+                <Divider />
+                <Link to={`${url}/addService`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">addService</Button></Link>
+
             </Box>}
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            <Divider />
         </div>
     );
 
@@ -68,6 +60,7 @@ function Dashboard(props) {
             <AppBar
                 position="fixed"
                 sx={{
+                    backgroundColor: "black",
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
@@ -128,6 +121,9 @@ function Dashboard(props) {
 
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/addService`}>
+                        <AddService></AddService>
                     </Route>
 
                 </Switch>

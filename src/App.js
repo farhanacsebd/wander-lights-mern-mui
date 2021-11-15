@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 }
   from "react-router-dom";
 import './App.css';
@@ -15,7 +14,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
-import Footer from "./Pages/Home/Shared/Footer/Footer";
 import Navigation from "./Pages/Home/Shared/Navigation/Navigation";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
