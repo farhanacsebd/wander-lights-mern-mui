@@ -22,7 +22,7 @@ img {
 }
 
 .contact-content p::after {
-    background: #353C46;
+    
     /* bottom: -30px; */
     content: "";
     height: 1px;

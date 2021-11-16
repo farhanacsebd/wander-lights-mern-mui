@@ -54,7 +54,7 @@ const Booking = () => {
                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item xs={4} sm={4} md={5}>
                         <div>
-                            <img style={{ width: "50%" }} src={service.img} alt="" />
+                            <img style={{ height: 200, width: "50%" }} src={service.img} alt="" />
                             <h3>{service.name}</h3>
                             <p>{service.description}</p>
                             <h5>Price: {service.price}</h5>

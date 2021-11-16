@@ -9,7 +9,7 @@ const Footer = () => {
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
                             <div class="contact-content text-center">
-                                <a href="#"><img style={{ maxWidth: "210px" }} src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/2/2016/08/Feature.jpg" alt="logo" /></a>
+
                                 <p>We provide best decorating lights in various types of features and prices.</p>
                                 <div class="hr"></div>
                                 <h6>Bangladesh</h6>
