@@ -13,7 +13,7 @@ const MyOrder = () => {
         fetch(`https://cryptic-castle-00111.herokuapp.com/buyer`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 const value = data.filter(db => db.email === user.email);
                 setUsers(value);
             });

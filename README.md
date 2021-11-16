@@ -1,4 +1,4 @@
-# Project Name : Decorationg Lignts
+# Project Name : Wander Lights
 
 Project link - https://handicraft-react.web.app/
 
