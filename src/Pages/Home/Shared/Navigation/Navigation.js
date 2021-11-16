@@ -110,7 +110,7 @@ const Navigation = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography className={navLogo} variant="h4" component="div" sx={{ flexGrow: 1 }}>
-                            Decoration Lights
+                            Wander Lights
                         </Typography>
 
 
