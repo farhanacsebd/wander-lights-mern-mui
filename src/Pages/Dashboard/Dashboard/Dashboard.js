@@ -22,6 +22,7 @@ import AddService from '../../AddService/AddService';
 import Review from '../Review/Review';
 import ManageAllOrder from '../../ManageAllOrder/ManageAllOrder';
 import MyOrder from '../../MyOrder/MyOrder';
+import Pay from '../Pay/Pay';
 
 const drawerWidth = 200;
 
@@ -49,6 +50,8 @@ function Dashboard(props) {
             <Link to={`${url}/MyOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">My Order</Button></Link>
             <Divider />
             <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Give Review</Button></Link>
+            <Divider />
+            <Link to={`${url}/Pay`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Payment In Here</Button></Link>
             <Divider />
 
 
@@ -90,9 +93,9 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    {/* <Typography variant="h6" noWrap component="div">
                         Dashboard
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
             </AppBar>
             <Box
@@ -148,6 +151,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/MyOrder`}>
                         <MyOrder></MyOrder>
+                    </Route>
+                    <Route path={`${path}/Pay`}>
+                        <Pay></Pay>
                     </Route>
 
                 </Switch>

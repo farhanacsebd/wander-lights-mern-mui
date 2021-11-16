@@ -12,6 +12,7 @@ import AllServices from "./Pages/AllServices/AllServices";
 import Booking from "./Pages/Booking/Booking";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import Pay from "./Pages/Dashboard/Pay/Pay";
 import Review from "./Pages/Dashboard/Review/Review";
 import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
@@ -30,8 +31,9 @@ function App() {
       <AuthProvider>
         <Router>
           <Navigation></Navigation>
-          <Switch>
-
+          <Switch> <Route exact path="/">
+            <Home />
+          </Route>
             <Route path="/home">
               <Home />
             </Route>
@@ -47,30 +49,31 @@ function App() {
             <Route path="/AllServices">
               <AllServices></AllServices>
             </Route>
-            <Route path="/ManageAllOrder">
-              <ManageAllOrder></ManageAllOrder>
-            </Route>
-            <Route path="/MyOrder">
-              <MyOrder></MyOrder>
-            </Route>
-            <Route path="/review">
-              <Review></Review>
-            </Route>
-            <PrivateRoute path="/Services">
+            <Route path="/Services">
               <Services />
+
+              <PrivateRoute path="/AddService">
+                <AddService />
+              </PrivateRoute>
+            </Route>
+            <PrivateRoute path="/ManageAllOrder">
+              <ManageAllOrder></ManageAllOrder>
             </PrivateRoute>
-            <PrivateRoute path="/AddService">
-              <AddService />
+            <PrivateRoute path="/MyOrder">
+              <MyOrder></MyOrder>
             </PrivateRoute>
-            <Route path="/dashboard">
+            <PrivateRoute path="/review">
+              <Review></Review>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
-            <Route path="/makeAdmin">
+            </PrivateRoute>
+            <PrivateRoute path="/makeAdmin">
               <MakeAdmin />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/Pay">
+              <Pay />
+            </PrivateRoute>
             <Route path="*">
               <Notfound></Notfound>
             </Route>
