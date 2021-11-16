@@ -56,7 +56,14 @@ const Navigation = () => {
                     <ListItemText>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">Home</Link>
                     </ListItemText >
+
                 </ListItem>
+                <ListItem button>
+                    <ListItemText>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/AllServices">AllProducts</Link>
+                    </ListItemText >
+                </ListItem>
+
                 <Divider />
                 <ListItem button>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashboard">Dashboard</Link>

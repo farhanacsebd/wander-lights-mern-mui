@@ -13,6 +13,7 @@ const MyOrder = () => {
         fetch(`http://localhost:5000/buyer`)
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 const value = data.filter(db => db.email === user.email);
                 setUsers(value);
             });
@@ -74,8 +75,11 @@ const MyOrder = () => {
                                         <Typography variant="body2" color="text.secondary">
                                             Order Date: {user.date}
                                         </Typography>
-                                        <Button  >{user.status}</Button>
-                                        <Button variant="contained" onClick={() => handleDelete(user._id)}>Delete</Button>
+
+                                        <div sx={{ justifyContent: 'space-between' }}>
+                                            <Button  >{user.status}</Button>
+                                            <Button variant="contained" onClick={() => handleDelete(user._id)}>Delete</Button>
+                                        </div>
 
                                     </CardContent>
 

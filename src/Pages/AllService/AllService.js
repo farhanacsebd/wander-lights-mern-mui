@@ -24,8 +24,8 @@ const AllService = ({ service }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/booking/${_id}`}>
-                        <Button sx={{ padding: "3px", margin: "5px", textDecoration: "none" }} variant="contained">Buy Now</Button>
+                    <Link to={`/booking/${_id}`} style={{ padding: "3px", margin: "5px", textDecoration: "none" }}>
+                        <Button variant="contained">Buy Now</Button>
                     </Link>
 
 

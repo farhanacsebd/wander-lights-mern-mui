@@ -21,6 +21,7 @@ import useAuth from './../../../hooks/useAuth';
 import AddService from '../../AddService/AddService';
 import Review from '../Review/Review';
 import ManageAllOrder from '../../ManageAllOrder/ManageAllOrder';
+import MyOrder from '../../MyOrder/MyOrder';
 
 const drawerWidth = 200;
 
@@ -28,7 +29,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, logOut } = useAuth();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -41,7 +42,7 @@ function Dashboard(props) {
 
             {/* <Link to="/appointment" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Appointment</Button></Link>
             <Divider /> */}
-            <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Dashboard</Button></Link>
+            {/* <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Dashboard</Button></Link> */}
             <Divider />
             <Link to="/home" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Home</Button></Link>
             <Divider />
@@ -60,6 +61,9 @@ function Dashboard(props) {
 
             </Box>}
             <Divider />
+            <Button onClick={logOut} color="inherit">LogOut</Button>
+            <Divider />
+
         </div>
     );
 
@@ -141,6 +145,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/manageallorder`}>
                         <ManageAllOrder></ManageAllOrder>
+                    </Route>
+                    <Route path={`${path}/MyOrder`}>
+                        <MyOrder></MyOrder>
                     </Route>
 
                 </Switch>
