@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../hooks/useAuth';
-
+import './Review.css'
 
 const Review = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -11,7 +11,7 @@ const Review = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://cryptic-castle-00111.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('review successfully');

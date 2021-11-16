@@ -10,21 +10,21 @@ const MyOrder = () => {
     // console.log(user.email);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/buyer`)
+        fetch(`https://cryptic-castle-00111.herokuapp.com/buyer`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 const value = data.filter(db => db.email === user.email);
                 setUsers(value);
             });
-    }, [])
+    }, [users])
 
 
     const handleDelete = id => {
 
         const proceed = window.confirm('Are you sure,You want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/buyer/${id}`;
+            const url = `https://cryptic-castle-00111.herokuapp.com/buyer/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

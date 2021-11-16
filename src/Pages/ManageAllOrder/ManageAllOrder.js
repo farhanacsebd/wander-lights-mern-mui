@@ -1,28 +1,30 @@
-import { Card, Grid, Box, CardContent, Typography, Button } from '@mui/material';
+import { Card, Grid, Box, CardContent, Typography, Button, Table } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const ManageAllOrder = () => {
 
     const [users, setUsers] = useState([])
+    const [approved, setApproved] = useState(false);
 
     // console.log(user.email);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/buyer`)
+        fetch(`https://cryptic-castle-00111.herokuapp.com/buyer`)
             .then(res => res.json())
             .then(data => {
 
                 setUsers(data);
                 console.log(users);
             });
-    }, [])
+    }, [approved])
 
 
     const handleDelete = id => {
 
         const proceed = window.confirm('Are you sure,You want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/buyer/${id}`;
+            const url = `https://cryptic-castle-00111.herokuapp.com/buyer/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -42,49 +44,65 @@ const ManageAllOrder = () => {
     }
 
 
+    // update the status pending to approved
+    const handleApproved = (order) => {
+        const newOrder = { ...order };
+        console.log(order)
+
+        newOrder.status = "Shipped";
+        delete newOrder._id;
+        const url = `https://cryptic-castle-00111.herokuapp.com/buyer/${order._id}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newOrder),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.acknowledged) {
+                    alert("Update Successfully");
+                    setApproved(!approved);
+                }
+            });
+    };
+
+
     return (
         <div id="users">
 
             <h2 className="mt-2 text-info">Manage All Orders</h2>
             <div className="row">
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
-                    {
-                        users.map(user => <Grid item xs={4} sm={4} md={4} >
-                            <Card sx={{ boxShadow: 2 }}>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            users.map(user =>
+                                <tr>
+                                    <td>{user.name}</td>
+                                    <td>{user.address}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.date}</td>
+                                    <td>{user.status}</td>
+                                    <td> <Button onClick={() => handleApproved(user)} className="btn btn-regular">✔️</Button> <Button onClick={() => handleDelete(user._id)} className="btn btn-regular">❌</Button> </td>
+                                </tr>
+                            )
+                        }
 
-                                <Box sx={{ bgcolor: 'text.disabled', color: 'primary.main' }}>
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="div">
-                                            {user.name}
-                                        </Typography>
-                                        <Typography variant="h6" color="text.secondary" sx={{ color: "white", p: 1 }}>
-                                            {user.email} BDT
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Product Name: {user.productName}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Price: {user.price}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Location: {user.address}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Order Date: {user.date}
-                                        </Typography>
-                                        <Button  >{user.status}</Button>
-                                        <Button variant="contained" onClick={() => handleDelete(user._id)}>Delete</Button>
 
-                                    </CardContent>
-
-                                </Box>
-                            </Card>
-                        </Grid>
-                        )
-                    }
-
-                </Grid>
+                    </tbody>
+                </Table>
 
             </div>
         </div>

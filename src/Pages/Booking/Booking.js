@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import './Booking.css'
+import { Container } from '@mui/material';
 
 
 const Booking = () => {
@@ -18,7 +19,7 @@ const Booking = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://cryptic-castle-00111.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -34,7 +35,7 @@ const Booking = () => {
         const status = "Pending";
         const bookingItem = { ...data, status };
 
-        axios.post('http://localhost:5000/buyer', bookingItem)
+        axios.post('https://cryptic-castle-00111.herokuapp.com/buyer', bookingItem)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {
@@ -47,44 +48,46 @@ const Booking = () => {
 
 
     return (
+        <Container>
 
-        <Box sx={{ flexGrow: 1, mt: 3 }}>
-            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={4} sm={4} md={4}>
-                    <div>
-                        <img style={{ width: "50%" }} src={service.img} alt="" />
-                        <h3>{service.name}</h3>
-                        <p>{service.description}</p>
-                        <h5>Price: {service.price}</h5>
-                    </div>
+            <Box sx={{ flexGrow: 1, mt: 3, mb: 7 }}>
+                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid item xs={4} sm={4} md={5}>
+                        <div>
+                            <img style={{ width: "50%" }} src={service.img} alt="" />
+                            <h3>{service.name}</h3>
+                            <p>{service.description}</p>
+                            <h5>Price: {service.price}</h5>
+                        </div>
+                    </Grid>
+                    <Grid item xs={4} sm={4} md={6}>
+
+
+                        <div className="add-order">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+
+                                <input {...register("name", { required: true, maxLength: 120 })} defaultValue={user.displayName} />
+                                <input {...register("email", { required: true, maxLength: 120 })} defaultValue={user.email} />
+                                <input {...register("productName", { required: true, maxLength: 150 })} defaultValue={service?.name} />
+                                <input {...register("price", { required: true, maxLength: 150 })} defaultValue={service?.price} />
+                                <textarea {...register("address", { required: true, maxLength: 150 })} placeholder="Address" />
+                                <input type="date" {...register("date")} placeholder="Date" />
+                                <input type="number" {...register("contact-number")} placeholder="Contact-Number" />
+
+                                <input type="submit" />
+                            </form>
+                        </div>
+
+
+
+
+
+
+
+                    </Grid>
                 </Grid>
-                <Grid item xs={4} sm={4} md={4}>
-
-
-                    <div className="add-order">
-                        <form onSubmit={handleSubmit(onSubmit)}>
-
-                            <input {...register("name", { required: true, maxLength: 120 })} defaultValue={user.displayName} />
-                            <input {...register("email", { required: true, maxLength: 120 })} defaultValue={user.email} />
-                            <input {...register("productName", { required: true, maxLength: 150 })} defaultValue={service?.name} />
-                            <input {...register("price", { required: true, maxLength: 150 })} defaultValue={service?.price} />
-                            <textarea {...register("address", { required: true, maxLength: 150 })} placeholder="Address" />
-                            <input type="date" {...register("date")} placeholder="Date" />
-                            <input type="number" {...register("contact-number")} placeholder="Contact-Number" />
-
-                            <input type="submit" />
-                        </form>
-                    </div>
-
-
-
-
-
-
-
-                </Grid>
-            </Grid>
-        </Box>
+            </Box>
+        </Container>
     );
 };
 
