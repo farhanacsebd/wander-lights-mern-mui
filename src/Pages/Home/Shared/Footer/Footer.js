@@ -9,7 +9,7 @@ const Footer = () => {
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3">
                             <div class="contact-content text-center">
-                                <a href="#"><img src="https://cdn.shopify.com/s/files/1/1138/0812/products/bo-sb120c_500x.jpg?v=1571942486" alt="logo" /></a>
+                                <a href="#"><img style={{ maxWidth: "210px" }} src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/2/2016/08/Feature.jpg" alt="logo" /></a>
                                 <p>We provide best decorating lights in various types of features and prices.</p>
                                 <div class="hr"></div>
                                 <h6>Bangladesh</h6>
@@ -21,7 +21,7 @@ const Footer = () => {
                                         <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
 
                                     </ul>
-                                    <h6></h6>
+                                    <h6>Copyright © 2021. All Rights Reserved by Farhana Binte Hasan.</h6>
                                 </div>
                             </div>
                         </div>

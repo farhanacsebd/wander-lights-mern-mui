@@ -23,7 +23,7 @@ img {
 
 .contact-content p::after {
     background: #353C46;
-    bottom: -30px;
+    /* bottom: -30px; */
     content: "";
     height: 1px;
     left: 50%;
@@ -68,9 +68,6 @@ img {
     color: #FAB702;
 }
 
-.contact-content img {
-    max-width: 210px;
-}
 
 section, footer {
     background: #1A1E25;
@@ -82,6 +79,3 @@ footer p {
     text-align: center;
 }
 
-footer img {
-    width: 44px;
-}
