@@ -13,7 +13,7 @@ const Services = () => {
     }, [])
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box style={{ marginTop: 90 }} sx={{ flexGrow: 1 }}>
             <h1 >Our Featured Products</h1>
 
             <Container>

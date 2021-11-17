@@ -45,7 +45,7 @@ const MyOrder = () => {
 
 
     return (
-        <div id="buyer">
+        <div style={{ marginBottom: 40 }} id="buyer">
 
             <h2>My Orders</h2>
             <div className="row">

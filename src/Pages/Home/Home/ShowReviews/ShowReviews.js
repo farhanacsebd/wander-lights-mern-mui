@@ -17,9 +17,9 @@ const ShowReviews = () => {
             <Typography sx variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 What Our Customer Says
             </Typography>
-            <Typography sx variant="h4" component="div" sx={{ flexGrow: 1, mb: 2 }}>
-                Reviews
-            </Typography>
+
+            <h1>Reviews</h1>
+
             <Container>
                 <Grid sx={{ flexGrow: 1, mb: 3, p: 2 }} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 

@@ -24,23 +24,23 @@ img {
 .contact-content p::after {
     
     /* bottom: -30px; */
-    content: "";
+    /* content: "";
     height: 1px;
     left: 50%;
     position: absolute;
     transform: translate(-50%);
-    width: 80%;
+    width: 80%; */
 }
 
 .contact-content h6 {
-    color: #8b9199;
+    color: white;
     font-size: 15px;
     font-weight: 400;
     margin-bottom: 10px;
 }
 
 .contact-content span {
-    color: #353c47;
+    color: white;
     margin: 0 10px;
 }
 
@@ -54,7 +54,7 @@ img {
 
 .contact-social ul li a {
     border: 1px solid #8b9199;
-    color: #8b9199;
+    color: white;
     display: inline-block;
     height: 40px;
     margin: 0 10px;
@@ -70,12 +70,18 @@ img {
 
 
 section, footer {
-    background: #1A1E25;
-    color: #868c96;
+    background: #6a1b9a;
+    color: white;
+}
+section, footer:hover {
+    background: #6a1b9a;
+    color: white;
+
 }
 
 footer p {
     padding: 40px 0;
     text-align: center;
 }
+
 

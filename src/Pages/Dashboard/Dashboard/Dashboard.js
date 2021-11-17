@@ -66,6 +66,8 @@ function Dashboard(props) {
 
 
             {admin && <Box>
+                <Link to="/home" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Home</Button></Link>
+                <Divider />
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Make Admin</Button></Link>
                 <Divider />
                 <Link to={`${url}/addService`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">AddService</Button></Link>
@@ -89,7 +91,7 @@ function Dashboard(props) {
             <AppBar
                 position="fixed"
                 sx={{
-                    backgroundColor: "black",
+                    backgroundColor: "#6a1b9a",
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}

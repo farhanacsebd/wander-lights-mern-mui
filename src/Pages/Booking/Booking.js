@@ -74,7 +74,7 @@ const Booking = () => {
                                 <input type="date" {...register("date")} placeholder="Date" />
                                 <input type="number" {...register("contact-number")} placeholder="Contact-Number" />
 
-                                <input type="submit" />
+                                <input class="BUTTON-Booking" type="submit" />
                             </form>
                         </div>
 

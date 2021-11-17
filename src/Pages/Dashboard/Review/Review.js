@@ -21,7 +21,7 @@ const Review = () => {
     }
 
     return (
-        <div className="add-review">
+        <div style={{ marginBottom: 40 }} className="add-review">
             <h2>Please Add a Review</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name", { required: true, maxLength: 120 })} defaultValue={user.displayName} />
@@ -36,7 +36,7 @@ const Review = () => {
                     <option value="5">5</option>
                 </select>
 
-                <input type="submit" />
+                <input class='BUTTON-REVIEW' type="submit" />
             </form>
         </div>
     );

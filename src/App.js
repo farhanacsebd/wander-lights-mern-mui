@@ -18,6 +18,7 @@ import Home from "./Pages/Home/Home/Home";
 import Services from "./Pages/Home/Services/Services";
 import Footer from "./Pages/Home/Shared/Footer/Footer";
 import Navigation from "./Pages/Home/Shared/Navigation/Navigation";
+import AdminRoute from "./Pages/Login/AdminRoute/AdminRoute";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
@@ -52,32 +53,37 @@ function App() {
             </Route>
             <Route path="/Services">
               <Services />
-
-              <PrivateRoute path="/AddService">
-                <AddService />
-              </PrivateRoute>
             </Route>
-            <PrivateRoute path="/ManageAllOrder">
-              <ManageAllOrder></ManageAllOrder>
+            <PrivateRoute path="/AddService">
+              <AddService />
             </PrivateRoute>
-            <PrivateRoute path="/MyOrder">
-              <MyOrder></MyOrder>
-            </PrivateRoute>
+
+
             <PrivateRoute path="/review">
               <Review></Review>
             </PrivateRoute>
+
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path="/ManageAllProduct">
-              <ManageAllProduct />
-            </PrivateRoute>
-            <PrivateRoute path="/makeAdmin">
-              <MakeAdmin />
-            </PrivateRoute>
+
             <PrivateRoute path="/Pay">
               <Pay />
             </PrivateRoute>
+
+            <AdminRoute path="/ManageAllOrder">
+              <ManageAllOrder></ManageAllOrder>
+            </AdminRoute>
+            <AdminRoute path="/MyOrder">
+              <MyOrder></MyOrder>
+            </AdminRoute>
+            <AdminRoute path="/ManageAllProduct">
+              <ManageAllProduct />
+            </AdminRoute>
+            <AdminRoute path="/makeAdmin">
+              <MakeAdmin />
+            </AdminRoute>
+
             <Route path="*">
               <Notfound></Notfound>
             </Route>
