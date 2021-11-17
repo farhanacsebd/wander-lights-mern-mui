@@ -23,6 +23,7 @@ import Review from '../Review/Review';
 import ManageAllOrder from '../../ManageAllOrder/ManageAllOrder';
 import MyOrder from '../../MyOrder/MyOrder';
 import Pay from '../Pay/Pay';
+import ManageAllProduct from '../../ManageAllProduct/ManageAllProduct';
 
 const drawerWidth = 200;
 
@@ -41,18 +42,27 @@ function Dashboard(props) {
             <br />
             <br />
 
-            {/* <Link to="/appointment" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Appointment</Button></Link>
-            <Divider /> */}
-            {/* <Link to={`${url}`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Dashboard</Button></Link> */}
             <Divider />
-            <Link to="/home" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Home</Button></Link>
-            <Divider />
-            <Link to={`${url}/MyOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">My Order</Button></Link>
-            <Divider />
-            <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Give Review</Button></Link>
-            <Divider />
-            <Link to={`${url}/Pay`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Payment In Here</Button></Link>
-            <Divider />
+
+
+            {
+                !admin && <Box>
+                    <Link to="/home" style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Home</Button></Link>
+                    <Divider />
+                    <Link to={`${url}/MyOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">My Order</Button></Link>
+                    <Divider />
+                    <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Give Review</Button></Link>
+                    <Divider />
+                    <Link to={`${url}/Pay`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Payment In Here</Button></Link>
+                    <Divider />
+                </Box>
+            }
+
+
+
+
+
+
 
 
             {admin && <Box>
@@ -61,6 +71,7 @@ function Dashboard(props) {
                 <Link to={`${url}/addService`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">AddService</Button></Link>
                 <Divider />
                 <Link to={`${url}/ManageAllOrder`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Manage All Orders</Button></Link>
+                <Link to={`${url}/ManageAllProduct`} style={{ textDecoration: 'none', color: 'black' }} ><Button color="inherit">Manage All Products</Button></Link>
 
             </Box>}
             <Divider />
@@ -154,6 +165,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/Pay`}>
                         <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/ManageAllProduct`}>
+                        <ManageAllProduct></ManageAllProduct>
                     </Route>
 
                 </Switch>

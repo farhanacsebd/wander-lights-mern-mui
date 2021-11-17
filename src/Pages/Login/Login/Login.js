@@ -33,61 +33,56 @@ const Login = () => {
     }
 
     return (
-        <Container>
-            <Grid container spacing={2}>
+        <Container style={{ marginTop: 90, marginBottom: 90, width: '50%' }}>
+            <Typography variant="h4" gutterBottom>Login
+            </Typography>
+            {!isLoading && <form onSubmit={handleLoginSubmit}>
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Your Email"
+                    name="email"
+                    onChange={handleOnChange}
+                    variant="standard" />
 
-                <Grid sx={{ mt: 8 }} item xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Login
-                    </Typography>
-                    {!isLoading && <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            onChange={handleOnChange}
-                            variant="standard" />
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Your Password"
+                    type="password"
+                    name="password"
+                    onChange={handleOnChange}
+                    variant="standard" />
 
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnChange}
-                            variant="standard" />
+                <Button sx={{ width: '75%', m: 3 }}
+                    type="submit"
+                    variant="contained">Login</Button>
 
-                        <Button sx={{ width: '75%', m: 3 }}
-                            type="submit"
-                            variant="contained">Login</Button>
+                <NavLink style={{ textDecoration: "None" }} to="/Register">
 
-                        <NavLink style={{ textDecoration: "None" }} to="/Register">
-
-                            <Button sx={{ width: '75%', m: 1 }}
-                                type="submit"
-                                variant="text">New User ? Please Registration</Button>
-                        </NavLink>
-
-                    </form>}
-                    <br />
-                    <br />
-                    {!isLoading && <Button onClick={handleGoogleSignIn} sx={{ m: 1 }}
+                    <Button sx={{ width: '75%', m: 1 }}
                         type="submit"
-                        variant="contained">Google SignIn</Button>} <br /><br />
-                    {
-                        isLoading && <CircularProgress color="secondary" />
+                        variant="text">New User ? Please Registration</Button>
+                </NavLink>
 
-                    }
-                    {user?.email && <Alert severity="success">User login successfully!</Alert>}
-                    {
-                        authError && <Alert severity="error">{authError}</Alert>
-                    }
-                </Grid>
-                <Grid item xs={12} md={6}>
+            </form>}
+            <br />
+            <br />
+            {/* {!isLoading && <Button onClick={handleGoogleSignIn} sx={{ m: 1 }}
+                type="submit"
+                variant="contained">Google SignIn</Button>} <br /><br /> */}
+            {
+                isLoading && <CircularProgress color="secondary" />
 
-                </Grid>
+            }
+            {user?.email && <Alert severity="success">User login successfully!</Alert>}
+            {
+                authError && <Alert severity="error">{authError}</Alert>
+            }
 
-            </Grid>
+
+
+
         </Container >
     );
 };

@@ -22,6 +22,7 @@ import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 import ManageAllOrder from "./Pages/ManageAllOrder/ManageAllOrder";
+import ManageAllProduct from "./Pages/ManageAllProduct/ManageAllProduct";
 import MyOrder from "./Pages/MyOrder/MyOrder";
 import Notfound from "./Pages/NotFound/NotFound";
 
@@ -67,6 +68,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/ManageAllProduct">
+              <ManageAllProduct />
             </PrivateRoute>
             <PrivateRoute path="/makeAdmin">
               <MakeAdmin />

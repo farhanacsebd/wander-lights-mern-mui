@@ -31,7 +31,7 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div>
+        <div style={{ marginBottom: 50 }}>
             <h2>Make an Admin</h2>
             <form onSubmit={handleAdminSubmit}>
                 <TextField

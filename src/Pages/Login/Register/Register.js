@@ -36,72 +36,65 @@ const Register = () => {
     }
 
     return (
-        <Container>
-            <Grid container spacing={2}>
+        <Container style={{ marginTop: 40, marginBottom: 50, width: '50%' }}>
 
-                <Grid sx={{ mt: 8 }} item xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Register
-                    </Typography>
-                    {!isLoading && <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Name"
-                            name="name"
-                            onChange={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            type="email"
-                            onChange={handleOnBlur}
-                            variant="standard" />
+            <Typography variant="h4" gutterBottom>Register
+            </Typography>
+            {!isLoading && <form onSubmit={handleLoginSubmit}>
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Your Name"
+                    name="name"
+                    onChange={handleOnBlur}
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Your Email"
+                    name="email"
+                    type="email"
+                    onChange={handleOnBlur}
+                    variant="standard" />
 
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Retype Your Password"
-                            type="password"
-                            name="password2"
-                            onChange={handleOnBlur}
-                            variant="standard" />
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Your Password"
+                    type="password"
+                    name="password"
+                    onChange={handleOnBlur}
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '75%', m: 1 }}
+                    id="standard-basic"
+                    label="Retype Your Password"
+                    type="password"
+                    name="password2"
+                    onChange={handleOnBlur}
+                    variant="standard" />
 
-                        <Button sx={{ width: '75%', m: 3 }}
-                            type="submit"
-                            variant="contained">Registration</Button>
+                <Button sx={{ width: '75%', m: 3 }}
+                    type="submit"
+                    variant="contained">Registration</Button>
 
-                        <NavLink style={{ textDecoration: "None" }} to="/Login">
+                <NavLink style={{ textDecoration: "None" }} to="/Login">
 
-                            <Button sx={{ width: '75%', m: 1 }}
-                                type="submit"
-                                variant="text">Already Registered ? Please Login</Button>
-                        </NavLink>
+                    <Button sx={{ width: '75%', m: 1 }}
+                        type="submit"
+                        variant="text">Already Registered ? Please Login</Button>
+                </NavLink>
 
-                    </form>}
-                    {
-                        isLoading && <CircularProgress color="secondary" />
+            </form>}
+            {
+                isLoading && <CircularProgress color="secondary" />
 
-                    }
-                    {user?.email && <Alert severity="success">User created successfully!</Alert>}
-                    {
-                        authError && <Alert severity="error">{authError}</Alert>
-                    }
-                </Grid>
-                <Grid item xs={12} md={6}>
+            }
+            {user?.email && <Alert severity="success">User created successfully!</Alert>}
+            {
+                authError && <Alert severity="error">{authError}</Alert>
+            }
 
-                </Grid>
-
-            </Grid>
         </Container >
     );
 };
