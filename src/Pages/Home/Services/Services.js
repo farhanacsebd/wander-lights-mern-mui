@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import Service from '../Service/Service';

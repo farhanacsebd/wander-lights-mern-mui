@@ -4,12 +4,13 @@
     background-repeat: no-repeat;
     object-fit: cover;
     /* clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 20% 80%, 0% 95%); */
-    clip-path: ellipse(90% 90% at 50% 0%);
+    clip-path: ellipse(98% 57% at 53% 1%);
+    transition: clip-path 5s;
     
 }
 
 
 .backgroundImage:hover{
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: ellipse(98% 96% at 49% 82%);
   
 }
